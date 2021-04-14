@@ -1,2 +1,2 @@
 # Canva-CLone-React
-Recreating thr functionality of canva 
+Recreating the functionality of canva 
