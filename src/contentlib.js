@@ -5,23 +5,26 @@ import "./contentlib.js";
 function Content({ id }) {
   const [content,setContent] = useState([])
 
-  const fetchdata = () => {
+  useEffect(() =>{
+    fetchdata();
+  }, [])
+
+  const fetchdata = async () => {
     let url = null;
-    switch (ID) {
+    switch (id) {
       case 3:
         url = "http://localhost:8000/api/info/1";
         break;
       case 4:
         url = "http://localhost:8000/api/info/2";
         break;
+      default:
+        break;
     }
     let response = await fetch(url);
     let content = await response.json();
-    setContent(content);}
-
-  useEffect(() =>{
-  fetchdata();
-  })
+    setContent(content);
+  }
 
   return (
     <div className="content-slide library " id="content">
