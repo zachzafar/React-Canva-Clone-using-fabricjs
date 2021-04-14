@@ -1,0 +1,38 @@
+
+.sidebar-options {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px 0 0 0 !important;
+    height: auto !important;
+    background: #242424 !important;
+  }
+  
+  .sidebar-element {
+    margin: 30px !important;
+    display: flex!important;
+    flex-direction: column !important;
+    color: #d9d9d9 !important;
+    align-items: center !important;
+  }
+  .sidebar-element:hover {
+    cursor: pointer !important;
+  }
+  
+  .sidebar-custom {
+    
+    margin: none !important;
+    display: flex !important;
+  }
+
+  .content-slide {
+    padding-right: 0 !important;
+    background: #242424 !important;
+  }
+
+  .library {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 150px !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+  }

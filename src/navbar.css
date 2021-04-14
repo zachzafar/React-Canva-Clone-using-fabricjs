@@ -1,0 +1,43 @@
+.navbar-custom {
+    display: flex;
+    background: linear-gradient(to top left, #14e3eb, #2815d3fa);
+    height: 50px;
+    align-items: center;
+  }
+
+  #downloadBtn {
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-top: 5px;
+    color: rgb(255, 255, 255);
+  }
+  
+  #downloadBtn:hover{
+    cursor: pointer;
+  }
+  
+  #shareBtn {
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-top: 5px;
+    color: rgb(255, 255, 255);
+  }
+  
+  #shareBtn:hover{
+    cursor: pointer;
+  }
+  
+  h3 {
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-top: 5px;
+    color: rgb(255, 255, 255);
+  }
+
+  h3:hover{
+      cursor: pointer;
+  }
+
+  .space{
+    width: 950px;
+  }
