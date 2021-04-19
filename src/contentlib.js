@@ -5,9 +5,9 @@ import "./contentlib.js";
 function Content({ id }) {
   const [content, setContent] = useState([]);
 
-  useEffect(() => {
+  useEffect(() =>{
     fetchdata();
-  }, []);
+  }, [])
 
   const fetchdata = async () => {
     let url = null;
@@ -21,18 +21,10 @@ function Content({ id }) {
       default:
         break;
     }
-    const ContentSet = async (content) => {
-      setContent(content);
-    };
-
-    let response = await fetch(url, {
-      mode: "cors",
-      headers: { "Access-Control-Allow-Origin": "*" },
-    });
+    let response = await fetch(url);
     let content = await response.json();
-    let Cont = await ContentSet(content);
-    console.log(Cont);
-  };
+    setContent(content);
+  }
 
   return (
     <div className="content-slide library " id="content">
