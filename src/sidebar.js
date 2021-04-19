@@ -58,7 +58,7 @@ function Sidebar() {
           func2={idSet}
           title="Add elements"
         />
-        <SidebarOption id={6} Icon={GifIcon} func={optionSet} title="Gifs" />
+        <SidebarOption id={6} Icon={GifIcon} func1={optionSet} func2={idSet}title="Gifs" />
       </div>
       {option ? <Content id={ID} /> : null}
     </aside>
