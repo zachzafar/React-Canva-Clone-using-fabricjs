@@ -1,7 +1,8 @@
+
 .navbar-custom {
     display: flex;
     background: linear-gradient(to top left, #14e3eb, #2815d3fa);
-    height: 50px;
+    height: 5vh;
     align-items: center;
   }
 
