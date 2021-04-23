@@ -7,9 +7,10 @@ import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import ExtensionIcon from "@material-ui/icons/Extension";
 import GifIcon from "@material-ui/icons/Gif";
 import SidebarOption from "./sidebarOption.js";
-import Content from "./contentlib.js";
+import NewContentlib from "./NewContentlib.js"
 
-function Sidebar() {
+
+function Sidebar({CanvasState}) {
   const [option, setOption] = useState(false);
   const [ID, setID] = useState(null);
 
@@ -60,7 +61,8 @@ function Sidebar() {
         />
         <SidebarOption id={6} Icon={GifIcon} func1={optionSet} func2={idSet}title="Gifs" />
       </div>
-      {option ? <Content id={ID} /> : null}
+      
+      {option ? <NewContentlib CanvasState={CanvasState} id={ID}/> : null}
     </aside>
   );
 }

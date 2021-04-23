@@ -1,30 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, {  useState } from "react";
 import "./App.css";
-import Navbar from "./navbar.js";
-import Sidebar from "./sidebar.js";
-import Main from "./main.js";
-import Modal from "./modalwindow";
+import Login from "./Login.js";
+import MainPage from "./MainPage.js";
+import {useStateValue} from './StateProvider.js'
 
 function App() {
-  const [modalState, setModalSate] = useState(false);
-  const canvasRef = useRef(null);
-  const setModal = () => {
-    setModalSate(!modalState);
-  };
-
-
-  return (
-    <div className="App">
-      <div className={`${modalState ? "overlay" : null}`}>
-        <Navbar canvasRef={canvasRef} function={setModal} state={modalState} />
-        <div className="content-wrapper">
-          <Sidebar canvasRef={canvasRef} />
-          <Main canvasRef={canvasRef}  />
-        </div>
-      </div>
-      {modalState ? <Modal /> : null}
-    </div>
-  );
+  const [{user}, dispatch] = useStateValue();
+  
+  return <div className="App">{!user ? <Login /> : <MainPage />}</div>;
 }
-
 export default App;

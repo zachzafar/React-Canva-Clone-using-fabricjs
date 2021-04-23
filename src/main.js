@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './main.css';
 import { fabric } from 'fabric';
+import {CanvasContext} from "./CanvaContext.js"
 
-const Main = (props) => {
+const Main = ({setCanvasState}) => {
+  const CanvasRef = useContext(CanvasContext)
   const [canvas, setCanvas] = useState('');
-
   useEffect(() => {
     setCanvas(initCanvas());
+    setCanvasState(canvas);
   }, []);
 
   const initCanvas = () => new fabric.Canvas('c');
@@ -15,7 +17,7 @@ const Main = (props) => {
     <main >
       <div className='containcontainer'>
         <div id='containcanvas'>
-          <canvas id='c' height='600px' width='400px' ref={props.canvasRef}></canvas>
+          <canvas id='c' height='600px' width='800px' ref={CanvasRef}></canvas>
         </div>
       </div>
     </main>

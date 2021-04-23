@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import './navbar.css';
 import ShareIcon from '@material-ui/icons/Share';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import './main.js';
+import {CanvasContext} from "./CanvaContext.js";
 
 const Navbar = (props) => {
-
+  const CanvasRef = useContext(CanvasContext)
   const download = () => {
-    const canvas = props.canvasRef.current;
+    const canvas = CanvasRef.current;
     if (canvas !== null){
       const link = canvas.toDataURL();
       const a = document.createElement('a');
