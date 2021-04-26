@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import { storageref } from "./firebase.js";
 import { fabric } from "fabric";
+import Image from "./Image.js";
 
 function NewContentlib({ id, CanvasState }) {
   const [pics, SetPics] = useState(null);
-  const imgRef = useRef(null);
+  const [compType, SetCompTypes] = useState(id);
 
   const setImg = () => {
-    fabric.Image.fromURL(imgRef.src, (img) => {
+    fabric.Image.fromURL(pics, (img) => {
       img.set({
         top: 0,
         left: 0,
@@ -23,30 +24,40 @@ function NewContentlib({ id, CanvasState }) {
     let url;
     switch (id) {
       case 2:
-        url = "Images/newshoes.jpg";
+        url = "Images";
         break;
       case 3:
-        url = "Background Images/image001.png";
+        url = "Background Images";
         break;
       default:
         url = null;
     }
     if (url) {
-      storageref
-        .child(url)
-        .getDownloadURL()
-        .then((result) => {
-          console.log(result);
-          SetPics(result);
+        let urlArray = [];
+        let listRef = storageref.child(url);
+        let firstPage = listRef.listAll();
+        firstPage.then((result) => {
+          result.items.forEach((item) => {
+            item.getDownloadURL().then((downloadURL) => {
+              
+              urlArray.push(downloadURL);
+            });
+          });
         });
+        SetPics(urlArray);
     } else {
-      console.log("Yet to be worked on");
+      console.log("still working on it")
     }
   }, []);
 
   return (
     <div className="content-slide library " id="content">
-      <img src={pics} ref={imgRef} onClick={setImg}></img>
+      {/*<img src={pics} onClick={setImg}></img>*/}
+      {pics ? pics.map(pic =>{
+          return (
+              <Image src={pic} compType={compType}></Image>
+          )
+      }): null}
     </div>
   );
 }
