@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function Image({Src,compType}) {
-    return (
-        <div>
-            <img src={Src}></img>
-        </div>
-    )
+function Image({ src, compType }) {
+  return (
+    <div>
+      <img src={src} />
+    </div>
+  );
 }
 
-export default Image
+export default Image;
