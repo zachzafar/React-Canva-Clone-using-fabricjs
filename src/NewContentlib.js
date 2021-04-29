@@ -4,24 +4,17 @@ import { fabric } from "fabric";
 import Image from "./Image.js";
 
 function NewContentlib({ id, CanvasState }) {
-  const [pics, SetPics] = useState(null);
+  const [pics, SetPics] = useState([]);
   const [compType, SetCompTypes] = useState(id);
-  const [isLoaded, SetLoaded] = useState(false)
-
-  const setImg = () => {
-    fabric.Image.fromURL(pics, (img) => {
-      img.set({
-        top: 0,
-        left: 0,
-        scaleY: CanvasState.height / img.height,
-        scaleX: CanvasState.width / img.width,
-      });
-      CanvasState.add(img);
-      CanvasState.renderAll();
-    });
-  };
+  const [isLoaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    if (!isLoaded) {
+      loadImages();
+    }
+  }, [isLoaded]);
+
+  const loadImages = async () => {
     let url;
     switch (id) {
       case 2:
@@ -34,33 +27,34 @@ function NewContentlib({ id, CanvasState }) {
         url = null;
     }
     if (url) {
-        let urlArray = [];
-        let listRef = storageref.child(url);
-        let firstPage = listRef.listAll();
-        firstPage.then((result) => {
-          result.items.forEach((item) => {
-            item.getDownloadURL().then((downloadURL) => {
-              
-              urlArray.push(downloadURL);
-            });
-          });
-          SetPics(urlArray);
-          SetLoaded(true);
-        });
-        
+      let listRef = storageref.child(url);
+
+      const result = await listRef.listAll();
+      const promises = result.items.map((item) => item.getDownloadURL());
+      Promise.all(promises).then((urlArray) => {
+        SetPics(urlArray);
+        setLoaded(true);
+      });
+
+      // result.items.forEach((item) => {
+      //   item.getDownloadURL().then((downloadURL) => {
+      //     urlArray.push(downloadURL);
+      //   });
+      // });
+
+      // SetPics(urlArray);
     } else {
-      console.log("still working on it")
+      console.log("still working on it");
     }
-  }, [isLoaded]);
+  };
 
   return (
     <div className="content-slide library " id="content">
       {/*<img src={pics} onClick={setImg}></img>*/}
-      {pics ? pics.map(pic =>{
-          return (
-              <Image Src={pic} compType={compType}></Image>
-          )
-      }): null}
+      {pics.map((pic) => {
+        console.log(pic);
+        return <Image src={pic} compType={compType} />;
+      })}
     </div>
   );
 }
