@@ -6,6 +6,7 @@ import Image from "./Image.js";
 function NewContentlib({ id, CanvasState }) {
   const [pics, SetPics] = useState(null);
   const [compType, SetCompTypes] = useState(id);
+  const [isLoaded, SetLoaded] = useState(false)
 
   const setImg = () => {
     fabric.Image.fromURL(pics, (img) => {
@@ -43,19 +44,21 @@ function NewContentlib({ id, CanvasState }) {
               urlArray.push(downloadURL);
             });
           });
+          SetPics(urlArray);
+          SetLoaded(true);
         });
-        SetPics(urlArray);
+        
     } else {
       console.log("still working on it")
     }
-  }, []);
+  }, [isLoaded]);
 
   return (
     <div className="content-slide library " id="content">
       {/*<img src={pics} onClick={setImg}></img>*/}
       {pics ? pics.map(pic =>{
           return (
-              <Image src={pic} compType={compType}></Image>
+              <Image Src={pic} compType={compType}></Image>
           )
       }): null}
     </div>
