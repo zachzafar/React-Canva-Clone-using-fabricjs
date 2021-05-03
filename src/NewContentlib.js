@@ -2,11 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import { storageref } from "./firebase.js";
 import { fabric } from "fabric";
 import Image from "./Image.js";
+import "./NewContentlib.css";
 
 function NewContentlib({ id, CanvasState }) {
   const [pics, SetPics] = useState([]);
   const [compType, SetCompTypes] = useState(id);
   const [isLoaded, setLoaded] = useState(false);
+  let Key = 0
 
   useEffect(() => {
     if (!isLoaded) {
@@ -36,13 +38,6 @@ function NewContentlib({ id, CanvasState }) {
         setLoaded(true);
       });
 
-      // result.items.forEach((item) => {
-      //   item.getDownloadURL().then((downloadURL) => {
-      //     urlArray.push(downloadURL);
-      //   });
-      // });
-
-      // SetPics(urlArray);
     } else {
       console.log("still working on it");
     }
@@ -50,10 +45,10 @@ function NewContentlib({ id, CanvasState }) {
 
   return (
     <div className="content-slide library " id="content">
-      {/*<img src={pics} onClick={setImg}></img>*/}
       {pics.map((pic) => {
         console.log(pic);
-        return <Image src={pic} compType={compType} />;
+        Key++
+        return <Image key={Key}src={pic} compType={compType} canvas={CanvasState} />;
       })}
     </div>
   );

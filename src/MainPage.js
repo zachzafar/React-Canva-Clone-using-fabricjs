@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./modalwindow";
 import Navbar from "./navbar.js";
 import Sidebar from "./sidebar.js";
@@ -11,6 +11,7 @@ function MainPage() {
   const setModal = () => {
     setModalSate(!modalState);
   };
+  
 
   return (
     <CanvasProvider>

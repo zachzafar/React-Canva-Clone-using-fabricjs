@@ -8,16 +8,28 @@ const Main = ({ setCanvasState }) => {
   const [canvas, setCanvas] = useState(null);
 
   useEffect(() => {
+    const initCanvas = () => new fabric.Canvas("c");
     const fabricObj = initCanvas();
     setCanvas(fabricObj);
     setCanvasState(fabricObj);
+    
+    const HandleKeydown = (event) => {
+      console.log(event);
+      if (event.key === "Delete" || event.key === "Backspace") {
+        fabricObj.remove(fabricObj.getActiveObject());
+      }
+    };
+    window.addEventListener("keydown", HandleKeydown);
+
+    return () => {
+      window.removeEventListener("keydown", HandleKeydown);
+    };
   }, []);
 
-  const initCanvas = () => new fabric.Canvas("c");
-
+  
   return (
     <main>
-      <div className="containcontainer">
+      <div className="containcontainer" >
         <div id="containcanvas">
           <canvas id="c" height="600px" width="800px" ref={CanvasRef}></canvas>
         </div>

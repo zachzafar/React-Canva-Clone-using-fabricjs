@@ -19,9 +19,9 @@
   }
   
   .sidebar-custom {
-    
     margin: none !important;
     display: flex !important;
+    height: 95vh;
   }
 
   .content-slide {
