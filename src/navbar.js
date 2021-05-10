@@ -24,9 +24,6 @@ const Navbar = (props) => {
       <div className='space'></div>
       <ShareIcon id='downloadBtn' onClick={props.function} />
       <GetAppIcon id='shareBtn' onClick={download} />
-      <div className='logInBtn'>
-        <h3>Log In</h3>
-      </div>
       <div className='Save'>
         <h3>Save</h3>
       </div>

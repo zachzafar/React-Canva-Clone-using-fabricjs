@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function SidebarOption({Icon,title,func1,func2,id}) {
-    const [activeBtn, setActiveBtn] = useState(false)
+function SidebarOption({ Icon, title, id, setLibrary, ID }) {
+  const [activeBtn, setActiveBtn] = useState(false);
 
-    const setBtnState = () => {
-        setActiveBtn(!activeBtn)
+  const setActive = () => {
+    if (ID === id) {
+      console.log("button set");
+      setActiveBtn(!activeBtn);
     }
+  };
   return (
-    <div className="sidebar-element" onClick={() =>{
-        func1();
-        setBtnState();
-        func2(id);
-        }}>
+    <div
+      className={activeBtn ? "ActiveBtn" : "sidebar-element"}
+      onClick={() => {
+        setLibrary(id);
+        setActive();
+      }}
+    >
       <Icon />
       <div className="">{title}</div>
     </div>

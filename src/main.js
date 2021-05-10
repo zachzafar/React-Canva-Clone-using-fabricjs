@@ -3,7 +3,7 @@ import "./main.css";
 import { fabric } from "fabric";
 import { CanvasContext } from "./CanvaContext.js";
 
-const Main = ({ setCanvasState }) => {
+const Main = ({ setCanvasState, escBtn }) => {
   const CanvasRef = useContext(CanvasContext);
   const [canvas, setCanvas] = useState(null);
 
@@ -14,7 +14,7 @@ const Main = ({ setCanvasState }) => {
     setCanvasState(fabricObj);
     
     const HandleKeydown = (event) => {
-      console.log(event);
+      
       if (event.key === "Delete" || event.key === "Backspace") {
         fabricObj.remove(fabricObj.getActiveObject());
       }

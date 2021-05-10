@@ -10,19 +10,22 @@ function NewContentlib({ id, CanvasState }) {
   const [isLoaded, setLoaded] = useState(false);
   let Key = 0
 
+
   useEffect(() => {
-    if (!isLoaded) {
+    if ( !isLoaded) {
       loadImages();
+      
     }
-  }, [isLoaded]);
+  }, []);
 
   const loadImages = async () => {
+    
     let url;
     switch (id) {
-      case 2:
+      case 3:
         url = "Images";
         break;
-      case 3:
+      case 4:
         url = "Background Images";
         break;
       default:
@@ -48,6 +51,7 @@ function NewContentlib({ id, CanvasState }) {
       {pics.map((pic) => {
         console.log(pic);
         Key++
+        
         return <Image key={Key}src={pic} compType={compType} canvas={CanvasState} />;
       })}
     </div>

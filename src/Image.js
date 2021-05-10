@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import {fabric}from "fabric";
 
 
 function Image({ src, compType, canvas }) {
+
+  const [pic, SetPic] = useState(src)
   const AddImage = () => {
     let func;
     switch (compType) {
@@ -12,10 +14,11 @@ function Image({ src, compType, canvas }) {
             img.scale(0.2);
             img.set({ left: 100, top: 100 });
             canvas.add(img);
+            canvas.renderAll();
           });
         };
         break;
-      case 2:
+      case 4:
         func = () => {
           fabric.Image.fromURL(src, (img) => {
             img.set({
@@ -39,7 +42,7 @@ function Image({ src, compType, canvas }) {
   };
   return (
     <div className="ImageContainer">
-      <img src={src} onClick={AddImage} height="100px" width="140px"/>
+      <img src={pic} onClick={AddImage} height="100px" width="140px"/>
     </div>
   );
 }

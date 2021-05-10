@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./sidebar.css";
 import TextFieldsIcon from "@material-ui/icons/TextFields";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
@@ -21,45 +21,67 @@ function Sidebar({CanvasState}) {
     setID(id);
   };
 
+  const setLibrary = (id) => {
+    if ( option === false && ID === null) {
+      console.log("state set library")
+        optionSet();
+        idSet(id);
+    } else if (id !== ID && option === true) {
+      idSet(id);
+      console.log("state set change library")
+    } else if (id === ID && option === true) {
+      optionSet();
+      idSet(null)
+      console.log("state set change close library")
+    }
+  };
+
+
   return (
     <aside className="sidebar-custom">
       <div className="sidebar-options">
         <SidebarOption
           id={1}
           Icon={TextFieldsIcon}
-          func1={optionSet}
-          func2={idSet}
+          setLibrary={setLibrary}
+          ID={ID}
           title="Text"
         />
         <SidebarOption
           id={2}
           Icon={AddAPhotoIcon}
-          func1={optionSet}
-          func2={idSet}
+          setLibrary={setLibrary}
+          ID={ID}
           title="Take Photo"
         />
         <SidebarOption
           id={3}
           Icon={PhotoLibraryIcon}
-          func1={optionSet}
-          func2={idSet}
+          setLibrary={setLibrary}
+          ID={ID}
           title="Add Photo"
         />
         <SidebarOption
           id={4}
           Icon={CropOriginalIcon}
-          func1={optionSet}
-          func2={idSet}
+          setLibrary={setLibrary}
+          ID={ID}
           title="Background"
         />
         <SidebarOption
           id={5}
           Icon={ExtensionIcon}
-          func1={optionSet}
-          func2={idSet}
+          setLibrary={setLibrary}
+          ID={ID}
           title="Add elements"
         />
-        <SidebarOption id={6} Icon={GifIcon} func1={optionSet} func2={idSet}title="Gifs" />
+        <SidebarOption
+         id={6}
+         Icon={GifIcon}
+         setLibrary={setLibrary} 
+         ID={ID} 
+         title="Gifs" 
+         />
       </div>
       
       {option ? <NewContentlib CanvasState={CanvasState} id={ID}/> : null}
@@ -68,7 +90,3 @@ function Sidebar({CanvasState}) {
 }
 
 export default Sidebar;
-
-/*
- 
-*/
