@@ -8,7 +8,7 @@
   }
   
   .sidebar-element {
-    margin: 30px !important;
+    margin: 15px !important;
     display: flex!important;
     flex-direction: column !important;
     color: #777777 !important;
@@ -32,13 +32,13 @@
   .library {
     display: flex !important;
     flex-direction: column !important;
-    width: 150px !important;
+    width: 250px !important;
     height: 100% !important;
     overflow-y: auto !important;
   }
 
   .ActiveBtn {
-    margin: 30px !important;
+    margin: 15px !important;
     display: flex!important;
     flex-direction: column !important;
     color: #dddddd !important;

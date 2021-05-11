@@ -1,10 +1,15 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {fabric}from "fabric";
 
 
 function Image({ src, compType, canvas }) {
 
-  const [pic, SetPic] = useState(src)
+  const [pic, SetPic] = useState(null)
+
+  useEffect(() =>{
+    SetPic(src)
+  },[src])
+
   const AddImage = () => {
     let func;
     switch (compType) {

@@ -6,20 +6,22 @@ import "./NewContentlib.css";
 
 function NewContentlib({ id, CanvasState }) {
   const [pics, SetPics] = useState([]);
-  const [compType, SetCompTypes] = useState(id);
-  const [isLoaded, setLoaded] = useState(false);
+  const [compType, SetCompTypes] = useState(null);
+  
   let Key = 0
-
+ 
+  
 
   useEffect(() => {
-    if ( !isLoaded) {
+    if (id !== compType) {
+      SetCompTypes(id);
       loadImages();
       
     }
-  }, []);
+  }, [id]);
 
   const loadImages = async () => {
-    
+
     let url;
     switch (id) {
       case 3:
@@ -38,7 +40,7 @@ function NewContentlib({ id, CanvasState }) {
       const promises = result.items.map((item) => item.getDownloadURL());
       Promise.all(promises).then((urlArray) => {
         SetPics(urlArray);
-        setLoaded(true);
+        
       });
 
     } else {
