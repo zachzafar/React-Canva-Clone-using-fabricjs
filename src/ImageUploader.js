@@ -37,7 +37,7 @@ function ImageUploader({ CanvasState }) {
         ? imageList.map((img) => {
             Key++;
             return (
-              <Image key={Key} src={img} compType={3} canvas={CanvasState} />
+              <Image key={Key} url={img} compType={3} canvas={CanvasState} />
             );
           })
         : null}

@@ -32,7 +32,7 @@
   .library {
     display: flex !important;
     flex-direction: column !important;
-    width: 250px !important;
+    width: 225px !important;
     height: 100% !important;
     overflow-y: auto !important;
   }

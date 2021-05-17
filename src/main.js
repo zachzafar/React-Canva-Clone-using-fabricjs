@@ -6,6 +6,13 @@ import { CanvasContext } from "./CanvaContext.js";
 const Main = ({ setCanvasState, escBtn }) => {
   const CanvasRef = useContext(CanvasContext);
   const [canvas, setCanvas] = useState(null);
+  const [activeCanvas, SetActive] = useState(false)
+
+
+  const SetCanvasActive = () => {
+    SetActive(!activeCanvas)
+
+  }
 
   useEffect(() => {
     const initCanvas = () => new fabric.Canvas("c");
@@ -14,11 +21,17 @@ const Main = ({ setCanvasState, escBtn }) => {
     setCanvasState(fabricObj);
     
     const HandleKeydown = (event) => {
-      
-      if (event.key === "Delete" || event.key === "Backspace") {
-        fabricObj.remove(fabricObj.getActiveObject());
+      if (event.key === "Delete" ) {
+        if (activeCanvas) {
+          console.log("remove canvas")
+          fabricObj.setBackgroundImage(0,canvas.renderAll.bind(fabricObj));
+        } else {
+          console.log("remove object")
+          fabricObj.remove(fabricObj.getActiveObject());
+        }  
       }
     };
+
     window.addEventListener("keydown", HandleKeydown);
 
     return () => {
@@ -29,9 +42,9 @@ const Main = ({ setCanvasState, escBtn }) => {
   
   return (
     <main>
-      <div className="containcontainer" >
-        <div id="containcanvas">
-          <canvas id="c" height="600px" width="800px" ref={CanvasRef}></canvas>
+      <div className={activeCanvas ? "activeCanvas containcontainer" : "containcontainer"} onClick={SetCanvasActive}>
+        <div id="containcanvas" >
+          <canvas id="c" height="600px" width="800px" ref={CanvasRef} ></canvas>
         </div>
       </div>
     </main>

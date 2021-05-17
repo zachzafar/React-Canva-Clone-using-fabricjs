@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { storageref } from "./firebase.js";
 import { fabric } from "fabric";
-import Image from "./Image.js";
+import Images from "./Image.js";
 import "./NewContentlib.css";
 
 function NewContentlib({ id, CanvasState }) {
@@ -54,7 +54,7 @@ function NewContentlib({ id, CanvasState }) {
         console.log(pic);
         Key++
         
-        return <Image key={Key}src={pic} compType={compType} canvas={CanvasState} />;
+        return <Images key={Key} url={pic} compType={compType} canvas={CanvasState} />;
       })}
     </div>
   );

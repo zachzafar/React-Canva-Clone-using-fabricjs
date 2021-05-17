@@ -9,6 +9,8 @@ import SidebarOption from "./sidebarOption.js";
 import NewContentlib from "./NewContentlib.js"
 import ImageUploader from "./ImageUploader.js"
 import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
+import Textbox from "./TextBox.js";
+
 
 
 function Sidebar({CanvasState}) {
@@ -36,7 +38,9 @@ function Sidebar({CanvasState}) {
     }
   };
   let content ;
-  if (ID === 2){
+  if (ID === 1){
+    content = <Textbox CanvasState={CanvasState}/>
+  } else if(ID === 2){
     content = <ImageUploader CanvasState={CanvasState}/>
   } else if(ID===3 || ID===4) {
     content = <NewContentlib CanvasState={CanvasState} id={ID}/>

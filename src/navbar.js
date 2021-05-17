@@ -4,14 +4,15 @@ import ShareIcon from '@material-ui/icons/Share';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import './main.js';
 import {CanvasContext} from "./CanvaContext.js";
+import { Button } from "@material-ui/core";
 
 const Navbar = (props) => {
   const CanvasRef = useContext(CanvasContext)
   const download = () => {
     const canvas = CanvasRef.current;
     if (canvas !== null){
-      const link = canvas.toDataURL();
       const a = document.createElement('a');
+      const link = canvas.toDataURL();
       a.href = link;
       a.download = "image.png";
       a.click();
@@ -22,10 +23,10 @@ const Navbar = (props) => {
     <nav className='navbar-custom'>
       <h3 style={{ flex: '1' }}> Welcome to Fabric</h3>
       <div className='space'></div>
-      <ShareIcon id='downloadBtn' onClick={props.function} />
-      <GetAppIcon id='shareBtn' onClick={download} />
+      <Button><ShareIcon id='downloadBtn' onClick={props.function} /></Button>
+      <Button><GetAppIcon id='shareBtn' onClick={download} /></Button>
       <div className='Save'>
-        <h3>Save</h3>
+       <h3>Save</h3>
       </div>
     </nav>
   );
