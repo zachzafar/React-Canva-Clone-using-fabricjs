@@ -3,7 +3,7 @@ import "./main.css";
 import { fabric } from "fabric";
 import { CanvasContext } from "./CanvaContext.js";
 
-const Main = ({ setCanvasState, escBtn }) => {
+const Main = ({ setCanvasState }) => {
   const CanvasRef = useContext(CanvasContext);
   const [canvas, setCanvas] = useState(null);
   const [activeCanvas, SetActive] = useState(false)
@@ -11,7 +11,6 @@ const Main = ({ setCanvasState, escBtn }) => {
 
   const SetCanvasActive = () => {
     SetActive(!activeCanvas)
-
   }
 
   useEffect(() => {
@@ -19,15 +18,15 @@ const Main = ({ setCanvasState, escBtn }) => {
     const fabricObj = initCanvas();
     setCanvas(fabricObj);
     setCanvasState(fabricObj);
-    
+  },[]);
+
+  useEffect(() => {
     const HandleKeydown = (event) => {
       if (event.key === "Delete" ) {
-        if (activeCanvas) {
-          console.log("remove canvas")
-          fabricObj.setBackgroundImage(0,canvas.renderAll.bind(fabricObj));
+        if (activeCanvas && canvas.getActiveObject() === undefined || canvas.getActiveObject() === null) {
+          canvas.setBackgroundImage(0,canvas.renderAll.bind(canvas));
         } else {
-          console.log("remove object")
-          fabricObj.remove(fabricObj.getActiveObject());
+          canvas.remove(canvas.getActiveObject());
         }  
       }
     };
@@ -37,7 +36,8 @@ const Main = ({ setCanvasState, escBtn }) => {
     return () => {
       window.removeEventListener("keydown", HandleKeydown);
     };
-  }, []);
+
+  },[activeCanvas])
 
   
   return (

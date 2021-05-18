@@ -1,14 +1,12 @@
-import React, {useState, useEffect} from "react";
-import {fabric} from "fabric";
-
+import React, { useState, useEffect } from "react";
+import { fabric } from "fabric";
 
 function Images({ url, compType, canvas }) {
+  const [pic, SetPic] = useState(null);
 
-  const [pic, SetPic] = useState(null)
-
-  useEffect(() =>{
-    SetPic(url)
-  },[url])
+  useEffect(() => {
+    SetPic(url);
+  }, [url]);
 
   const AddImage = () => {
     /*let image = new Image()
@@ -24,7 +22,7 @@ function Images({ url, compType, canvas }) {
             canvas.add(img);
             canvas.renderAll();
           });
-         /* let imageInstance = new fabric.Image(image, {
+          /* let imageInstance = new fabric.Image(image, {
             left: 100,
             top: 100, 
           });
@@ -55,7 +53,7 @@ function Images({ url, compType, canvas }) {
   };
   return (
     <div className="ImageContainer">
-      <img src={pic} onClick={AddImage}  height="100px" width="140px"/>
+      <img src={pic} onClick={AddImage} height="100px" width="140px" />
     </div>
   );
 }

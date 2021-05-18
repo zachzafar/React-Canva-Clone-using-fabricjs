@@ -24,9 +24,9 @@ const Navbar = (props) => {
       <h3 style={{ flex: '1' }}> Welcome to Fabric</h3>
       <div className='space'></div>
       <Button><ShareIcon id='downloadBtn' onClick={props.function} /></Button>
-      <Button><GetAppIcon id='shareBtn' onClick={download} /></Button>
+      <Button><GetAppIcon id='shareBtn' onClick={download}/></Button>
       <div className='Save'>
-       <h3>Save</h3>
+       <Button><h3>Publish</h3></Button>
       </div>
     </nav>
   );
