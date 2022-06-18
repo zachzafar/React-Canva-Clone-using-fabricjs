@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import "./sidebar.css";
+import "../css/sidebar.css";
 import TextFieldsIcon from "@material-ui/icons/TextFields";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import ExtensionIcon from "@material-ui/icons/Extension";
-import SidebarOption from "./sidebarOption.js";
-import NewContentlib from "./NewContentlib.js"
-import ImageUploader from "./ImageUploader.js"
-import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
-import Textbox from "./TextBox.js";
+import SidebarOption from "./sidebarOption.jsx";
+import NewContentlib from "./NewContentlib.jsx";
+import ImageUploader from "./ImageUploader.jsx";
+import ViewQuiltIcon from "@material-ui/icons/ViewQuilt";
+import Textbox from "./TextBox.jsx";
 
-
-
-function Sidebar({CanvasState}) {
+function Sidebar({ CanvasState }) {
   const [option, setOption] = useState(false);
   const [ID, setID] = useState(null);
   const optionSet = () => {
@@ -24,26 +22,26 @@ function Sidebar({CanvasState}) {
   };
 
   const setLibrary = (id) => {
-    if ( option === false && ID === null) {
-      console.log("state set library")
-        optionSet();
-        idSet(id);
+    if (option === false && ID === null) {
+      console.log("state set library");
+      optionSet();
+      idSet(id);
     } else if (id !== ID && option === true) {
       idSet(id);
-      console.log("state set change library")
+      console.log("state set change library");
     } else if (id === ID && option === true) {
       optionSet();
-      idSet(null)
-      console.log("state set change close library")
+      idSet(null);
+      console.log("state set change close library");
     }
   };
-  let content ;
-  if (ID === 1){
-    content = <Textbox CanvasState={CanvasState}/>
-  } else if(ID === 2){
-    content = <ImageUploader CanvasState={CanvasState}/>
-  } else if(ID===3 || ID===4) {
-    content = <NewContentlib CanvasState={CanvasState} id={ID}/>
+  let content;
+  if (ID === 1) {
+    content = <Textbox CanvasState={CanvasState} />;
+  } else if (ID === 2) {
+    content = <ImageUploader CanvasState={CanvasState} />;
+  } else if (ID === 3 || ID === 4) {
+    content = <NewContentlib CanvasState={CanvasState} id={ID} />;
   }
 
   return (
@@ -90,15 +88,15 @@ function Sidebar({CanvasState}) {
           title="Add elements"
         />
         <SidebarOption
-         id={6}
-         Icon={ViewQuiltIcon}
-         setLibrary={setLibrary} 
-         ID={ID}
-         option={option} 
-         title="Templates" 
-         />
+          id={6}
+          Icon={ViewQuiltIcon}
+          setLibrary={setLibrary}
+          ID={ID}
+          option={option}
+          title="Templates"
+        />
       </div>
-      
+
       {option ? content : null}
     </aside>
   );

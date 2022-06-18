@@ -3,10 +3,9 @@
   height: 100vh;
 }
 
-.content-wrapper{
-  display:flex
+.content-wrapper {
+  display: flex;
 }
-
 
 .hidden {
   display: none;

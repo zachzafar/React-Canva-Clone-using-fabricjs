@@ -1,27 +1,23 @@
 import React, { useEffect, useState, useRef } from "react";
-import { storageref } from "./firebase.js";
+import { storageref } from "../func/firebase.js";
 import { fabric } from "fabric";
-import Images from "./Image.js";
-import "./NewContentlib.css";
+import Images from "./Image.jsx";
+import "../css/NewContentlib.css";
 
 function NewContentlib({ id, CanvasState }) {
   const [pics, SetPics] = useState([]);
   const [compType, SetCompTypes] = useState(null);
-  
-  let Key = 0
- 
-  
+
+  let Key = 0;
 
   useEffect(() => {
     if (id !== compType) {
       SetCompTypes(id);
       loadImages();
-      
     }
   }, [id]);
 
   const loadImages = async () => {
-
     let url;
     switch (id) {
       case 3:
@@ -40,9 +36,7 @@ function NewContentlib({ id, CanvasState }) {
       const promises = result.items.map((item) => item.getDownloadURL());
       Promise.all(promises).then((urlArray) => {
         SetPics(urlArray);
-        
       });
-
     } else {
       console.log("still working on it");
     }
@@ -52,9 +46,16 @@ function NewContentlib({ id, CanvasState }) {
     <div className="content-slide library " id="content">
       {pics.map((pic) => {
         console.log(pic);
-        Key++
-        
-        return <Images key={Key} url={pic} compType={compType} canvas={CanvasState} />;
+        Key++;
+
+        return (
+          <Images
+            key={Key}
+            url={pic}
+            compType={compType}
+            canvas={CanvasState}
+          />
+        );
       })}
     </div>
   );
