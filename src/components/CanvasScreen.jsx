@@ -3,7 +3,7 @@ import "../css/main.css";
 import { fabric } from "fabric";
 import { CanvasContext } from "../func/CanvaContext.js";
 
-const Main = ({ setCanvasState }) => {
+const CanvasScreen = ({ setCanvasState }) => {
   const CanvasRef = useContext(CanvasContext);
   const [canvas, setCanvas] = useState(null);
   const [activeCanvas, SetActive] = useState(false);
@@ -56,4 +56,4 @@ const Main = ({ setCanvasState }) => {
   );
 };
 
-export default Main;
+export default CanvasScreen;

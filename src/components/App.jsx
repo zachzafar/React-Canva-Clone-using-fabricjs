@@ -7,6 +7,10 @@ import { useStateValue } from "../func/StateProvider.js";
 function App() {
   const [{ user }, dispatch] = useStateValue();
 
-  return <div className="App">{!user ? <Login /> : <MainPage />}</div>;
+  return (
+    <div className="text-center h-screen">
+      {!user ? <Login /> : <MainPage />}
+    </div>
+  );
 }
 export default App;

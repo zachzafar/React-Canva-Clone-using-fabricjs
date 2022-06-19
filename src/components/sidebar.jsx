@@ -5,7 +5,7 @@ import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import ExtensionIcon from "@material-ui/icons/Extension";
-import SidebarOption from "./sidebarOption.jsx";
+import SidebarOption from "./SidebarOption.jsx";
 import NewContentlib from "./NewContentlib.jsx";
 import ImageUploader from "./ImageUploader.jsx";
 import ViewQuiltIcon from "@material-ui/icons/ViewQuilt";
@@ -46,7 +46,7 @@ function Sidebar({ CanvasState }) {
 
   return (
     <aside className="sidebar-custom">
-      <div className="sidebar-options">
+      <div className="flex flex-col pl-2 h-auto bg-gray-900">
         <SidebarOption
           id={1}
           Icon={TextFieldsIcon}

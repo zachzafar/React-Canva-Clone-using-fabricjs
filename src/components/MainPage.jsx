@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Modal from "./modalwindow";
-import Navbar from "./navbar.jsx";
-import Sidebar from "./sidebar.jsx";
-import Main from "./main.jsx";
+import Modal from "./Modalwindow";
+import Navbar from "./Navbar.jsx";
+import Sidebar from "./Sidebar.jsx";
+import Main from "./CanvasScreen.jsx";
 import CanvasProvider from "../func/CanvaContext.js";
 
 function MainPage() {

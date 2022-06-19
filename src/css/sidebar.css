@@ -1,51 +1,50 @@
-
 .sidebar-options {
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 10px 0 0 0 !important;
-    height: auto !important;
-    background: #242424 ;
-  }
-  
-  .sidebar-element {
-    margin: 15px !important;
-    display: flex!important;
-    flex-direction: column !important;
-    color: #777777 !important;
-    align-items: center !important;
-  }
-  .sidebar-element:hover {
-    cursor: pointer !important;
-  }
-  
-  .sidebar-custom {
-    margin: none !important;
-    display: flex !important;
-    height: 95vh;
-  }
+  display: flex !important;
+  flex-direction: column !important;
+  padding-left: 10px !important;
+  height: auto !important;
+  background: #242424;
+}
 
-  .content-slide {
-    padding-right: 0 !important;
-    background: #373738 !important;
-  }
+.sidebar-element {
+  margin: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  color: #777777 !important;
+  align-items: center !important;
+}
+.sidebar-element:hover {
+  cursor: pointer !important;
+}
 
-  .library {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 225px !important;
-    height: 100% !important;
-    overflow-y: auto !important;
-  }
+.sidebar-custom {
+  margin: none !important;
+  display: flex !important;
+  height: 95vh;
+}
 
-  .ActiveBtn {
-    margin: 15px !important;
-    display: flex!important;
-    flex-direction: column !important;
-    color: #dddddd !important;
-    transition-delay: 0.1s;
-    transition-timing-function: ease-in;
-    align-items: center !important;
-  }
-  .ActiveBtn:hover {
-    cursor: pointer !important;
-  }
+.content-slide {
+  padding-right: 0 !important;
+  background: #373738 !important;
+}
+
+.library {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 225px !important;
+  height: 100% !important;
+  overflow-y: auto !important;
+}
+
+.ActiveBtn {
+  margin: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  color: #dddddd !important;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in;
+  align-items: center !important;
+}
+.ActiveBtn:hover {
+  cursor: pointer !important;
+}
