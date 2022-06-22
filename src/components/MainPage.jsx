@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Modal from "./Modalwindow";
-import Navbar from "./Navbar.jsx";
-import Sidebar from "./Sidebar.jsx";
-import Main from "./CanvasScreen.jsx";
-import CanvasProvider from "../func/CanvaContext.js";
+import React, { useState } from 'react';
+import Modal from './Modalwindow';
+import Navbar from './Navbar.jsx';
+import Sidebar from './Sidebar.jsx';
+import CanvasScreen from './CanvasScreen.jsx';
+import CanvasProvider from '../func/CanvaContext.js';
 
 function MainPage() {
   const [modalState, setModalState] = useState(false);
@@ -15,11 +15,11 @@ function MainPage() {
   return (
     <CanvasProvider>
       <div>
-        <div className={`${modalState ? "overlay" : null}`}>
+        <div className={`${modalState ? 'overlay' : null}`}>
           <Navbar function={setModal} state={modalState} />
-          <div className="content-wrapper">
+          <div className='content-wrapper'>
             <Sidebar CanvasState={CanvasState} />
-            <Main setCanvasState={setCanvasState} />
+            <CanvasScreen setCanvasState={setCanvasState} />
           </div>
         </div>
         {modalState ? <Modal escBtn={setModal} /> : null}

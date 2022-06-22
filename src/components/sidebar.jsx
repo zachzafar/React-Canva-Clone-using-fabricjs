@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import "../css/sidebar.css";
-import TextFieldsIcon from "@material-ui/icons/TextFields";
-import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
-import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
-import CropOriginalIcon from "@material-ui/icons/CropOriginal";
-import ExtensionIcon from "@material-ui/icons/Extension";
-import SidebarOption from "./SidebarOption.jsx";
-import NewContentlib from "./NewContentlib.jsx";
-import ImageUploader from "./ImageUploader.jsx";
-import ViewQuiltIcon from "@material-ui/icons/ViewQuilt";
-import Textbox from "./TextBox.jsx";
+import React, { useState } from 'react';
+import '../css/sidebar.css';
+import TextFieldsIcon from '@material-ui/icons/TextFields';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
+import CropOriginalIcon from '@material-ui/icons/CropOriginal';
+import ExtensionIcon from '@material-ui/icons/Extension';
+import SidebarOption from './SidebarOption.jsx';
+import NewContentlib from './NewContentlib.jsx';
+import ImageUploader from './ImageUploader.jsx';
+import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
+import Textbox from './TextBox.jsx';
 
 function Sidebar({ CanvasState }) {
   const [option, setOption] = useState(false);
@@ -23,16 +23,16 @@ function Sidebar({ CanvasState }) {
 
   const setLibrary = (id) => {
     if (option === false && ID === null) {
-      console.log("state set library");
+      console.log('state set library');
       optionSet();
       idSet(id);
     } else if (id !== ID && option === true) {
       idSet(id);
-      console.log("state set change library");
+      console.log('state set change library');
     } else if (id === ID && option === true) {
       optionSet();
       idSet(null);
-      console.log("state set change close library");
+      console.log('state set change close library');
     }
   };
   let content;
@@ -45,15 +45,15 @@ function Sidebar({ CanvasState }) {
   }
 
   return (
-    <aside className="sidebar-custom">
-      <div className="flex flex-col pl-2 h-auto bg-gray-900">
+    <aside className='sidebar-custom'>
+      <div className='flex flex-col pl-2 h-auto bg-gray-900'>
         <SidebarOption
           id={1}
           Icon={TextFieldsIcon}
           setLibrary={setLibrary}
           ID={ID}
           option={option}
-          title="Text"
+          title='Text'
         />
         <SidebarOption
           id={2}
@@ -61,7 +61,7 @@ function Sidebar({ CanvasState }) {
           setLibrary={setLibrary}
           ID={ID}
           option={option}
-          title="Upload Photo"
+          title='Upload Photo'
         />
         <SidebarOption
           id={3}
@@ -69,7 +69,7 @@ function Sidebar({ CanvasState }) {
           setLibrary={setLibrary}
           ID={ID}
           option={option}
-          title="Add Photo"
+          title='Add Photo'
         />
         <SidebarOption
           id={4}
@@ -77,7 +77,7 @@ function Sidebar({ CanvasState }) {
           setLibrary={setLibrary}
           ID={ID}
           option={option}
-          title="Background"
+          title='Background'
         />
         <SidebarOption
           id={5}
@@ -85,7 +85,7 @@ function Sidebar({ CanvasState }) {
           setLibrary={setLibrary}
           ID={ID}
           option={option}
-          title="Add elements"
+          title='Add elements'
         />
         <SidebarOption
           id={6}
@@ -93,7 +93,7 @@ function Sidebar({ CanvasState }) {
           setLibrary={setLibrary}
           ID={ID}
           option={option}
-          title="Templates"
+          title='Templates'
         />
       </div>
 

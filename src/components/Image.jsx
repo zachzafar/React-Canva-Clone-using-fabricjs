@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { fabric } from "fabric";
+import React, { useState, useEffect } from 'react';
+import { fabric } from 'fabric';
 
 function Images({ url, compType, canvas }) {
   const [pic, SetPic] = useState(null);
@@ -45,15 +45,15 @@ function Images({ url, compType, canvas }) {
         break;
       default:
         func = () => {
-          console.log("work being done");
+          console.log('work being done');
         };
         break;
     }
     func();
   };
   return (
-    <div className="ImageContainer">
-      <img src={pic} onClick={AddImage} height="100px" width="140px" />
+    <div className='ImageContainer'>
+      <img src={pic} onClick={AddImage} height='100px' width='140px' />
     </div>
   );
 }

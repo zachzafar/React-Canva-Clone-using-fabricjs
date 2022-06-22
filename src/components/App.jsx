@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import "../css/App.css";
-import Login from "./Login.jsx";
-import MainPage from "./MainPage.jsx";
-import { useStateValue } from "../func/StateProvider.js";
+import React from 'react';
+import '../css/App.css';
+import Login from './Login';
+import MainPage from './MainPage';
+import { useStateValue } from '../func/StateProvider';
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   return (
-    <div className="text-center h-screen">
+    <div className='text-center h-screen'>
       {!user ? <Login /> : <MainPage />}
     </div>
   );

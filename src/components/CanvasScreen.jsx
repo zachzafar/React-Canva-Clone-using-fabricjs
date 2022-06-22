@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import "../css/main.css";
-import { fabric } from "fabric";
-import { CanvasContext } from "../func/CanvaContext.js";
+import React, { useState, useEffect, useContext } from 'react';
+import '../css/main.css';
+import { fabric } from 'fabric';
+import { CanvasContext } from '../func/CanvaContext.js';
 
 const CanvasScreen = ({ setCanvasState }) => {
   const CanvasRef = useContext(CanvasContext);
@@ -13,7 +13,7 @@ const CanvasScreen = ({ setCanvasState }) => {
   };
 
   useEffect(() => {
-    const initCanvas = () => new fabric.Canvas("c");
+    const initCanvas = () => new fabric.Canvas('c');
     const fabricObj = initCanvas();
     setCanvas(fabricObj);
     setCanvasState(fabricObj);
@@ -21,7 +21,7 @@ const CanvasScreen = ({ setCanvasState }) => {
 
   useEffect(() => {
     const HandleKeydown = (event) => {
-      if (event.key === "Delete") {
+      if (event.key === 'Delete') {
         if (
           (activeCanvas && canvas.getActiveObject() === undefined) ||
           canvas.getActiveObject() === null
@@ -33,10 +33,10 @@ const CanvasScreen = ({ setCanvasState }) => {
       }
     };
 
-    window.addEventListener("keydown", HandleKeydown);
+    window.addEventListener('keydown', HandleKeydown);
 
     return () => {
-      window.removeEventListener("keydown", HandleKeydown);
+      window.removeEventListener('keydown', HandleKeydown);
     };
   }, [activeCanvas]);
 
@@ -44,12 +44,12 @@ const CanvasScreen = ({ setCanvasState }) => {
     <main>
       <div
         className={
-          activeCanvas ? "activeCanvas containcontainer" : "containcontainer"
+          activeCanvas ? 'activeCanvas containcontainer' : 'containcontainer'
         }
         onClick={SetCanvasActive}
       >
-        <div id="containcanvas">
-          <canvas id="c" height="600px" width="800px" ref={CanvasRef}></canvas>
+        <div id='containcanvas'>
+          <canvas id='c' height='600px' width='800px' ref={CanvasRef}></canvas>
         </div>
       </div>
     </main>

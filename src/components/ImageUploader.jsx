@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Button } from "@material-ui/core";
-import Image from "./Image.jsx";
-import "../css/ImageUploader.css";
+import React, { useState } from 'react';
+import { Button } from '@material-ui/core';
+import Image from './Image.jsx';
+import '../css/ImageUploader.css';
 
 function ImageUploader({ CanvasState }) {
   const [imageList, SetImageList] = useState([]);
@@ -26,13 +26,13 @@ function ImageUploader({ CanvasState }) {
   };
 
   const updateImage = () => {
-    document.getElementById("button").click();
+    document.getElementById('button').click();
   };
 
   return (
-    <div className="content-slide library" id="content">
-      <input type="file" id="button" hidden onChange={updateList} />
-      <div className="Upload_image">
+    <div className='content-slide library' id='content'>
+      <input type='file' id='button' hidden onChange={updateList} />
+      <div className='Upload_image'>
         <Button onClick={updateImage}>Upload Image</Button>
       </div>
       {condition

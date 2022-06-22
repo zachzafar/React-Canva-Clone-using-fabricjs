@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { storageref } from "../func/firebase.js";
-import { fabric } from "fabric";
 import Images from "./Image.jsx";
 import "../css/NewContentlib.css";
 

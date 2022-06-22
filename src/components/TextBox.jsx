@@ -1,7 +1,7 @@
-import React from "react";
-import "../css/fonts.css";
-import "../css/Textbox.css";
-import { fabric } from "fabric";
+import React from 'react';
+import '../css/fonts.css';
+import '../css/Textbox.css';
+import { fabric } from 'fabric';
 
 function TextBox({ CanvasState }) {
   const canvas = CanvasState;
@@ -13,13 +13,13 @@ function TextBox({ CanvasState }) {
       fontSize: 20,
     });
     canvas.add(txtbox).setActiveObject(txtbox);
-    canvas.getActiveObject().set("fontFamily", event.target.innerHTML);
+    canvas.getActiveObject().set('fontFamily', event.target.innerHTML);
     canvas.requestRenderAll();
   };
 
   return (
-    <div className="content-slide library " id="content">
-      <div className="text" onClick={addText}>
+    <div className='content-slide library ' id='content'>
+      <div className='text' onClick={addText}>
         <h3>Golden Garden</h3>
       </div>
     </div>
